@@ -1,19 +1,27 @@
-public class CellStandart extends ACell{
-    public CellStandart(int x, int y, int step) {
-        super(x,y,step);
-//        this.coordinateX = x;
-//        this.coordinateY = y;
-//        this.stepFromStart = step;
+public class Cell {
+    int coordinateX;
+    int coordinateY;
+    int stepFromStart;
+
+    public Cell(int x, int y, int step) {
+        this.coordinateX = x;
+        this.coordinateY = y;
+        this.stepFromStart = step;
+    }
+
+    public Cell copy() {
+        return new Cell(this.coordinateX, this.coordinateY, this.stepFromStart);
     }
 
     @Override
     public String toString() {
         return "(" + (this.coordinateX) + "," + (this.coordinateY) + ") " + (this.stepFromStart);
     }
+
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof CellStandart) {
-            return ((CellStandart) obj).coordinateX == this.coordinateX && ((CellStandart) obj).coordinateY == this.coordinateY && ((CellStandart) obj).stepFromStart == this.stepFromStart;
+        if (obj instanceof Cell) {
+            return ((Cell) obj).coordinateX == this.coordinateX && ((Cell) obj).coordinateY == this.coordinateY && ((Cell) obj).stepFromStart == this.stepFromStart;
         }
         return false;
     }
